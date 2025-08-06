@@ -1,0 +1,24 @@
+# Core
+python-dotenv
+numpy
+
+# LangChain
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-huggingface
+
+# LLM & Embeddings
+sentence-transformers
+huggingface-hub
+
+# Vector Stores
+chromadb
+
+# Document Loaders
+pypdf
+
+# Web Framework
+fastapi
+uvicorn

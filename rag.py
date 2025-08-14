@@ -71,13 +71,17 @@ class RAG:
     def _init_chain(self):
         retriever = self.vector_db.as_retriever()
         
-        prompt_template = """You are a helpful assistant that can answer questions about the following context.
-        If you don't know the answer, just say that you don't know, don't try to make up an answer.
+        prompt_template = """You are a specialized AI assistant for Lakshya Paliwal's portfolio. Your purpose is to answer questions about Lakshya based on his resume and personal documents.
+        Use only the provided context to answer questions.
 
+        If a question is not about Lakshya Paliwal, his skills, experience or his projects, you must politely decline to answer and state that you can only answer questions about him.
+        If the context does not contain the answer to a question about Lakshya, you must state that you don't have that information. Do not make up answers.
+
+        Context:
         {context}
 
         Question: {question}
-        Helpful Answer:"""
+        Answer:"""
         
         PROMPT = PromptTemplate(
             template=prompt_template, input_variables=["context", "question"]

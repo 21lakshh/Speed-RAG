@@ -15,7 +15,7 @@ load_dotenv()
 
 groq_api_key = os.getenv("GROQ_API_KEY")
 docs_dir = os.path.join(os.path.dirname(__file__), "docs_dir")
-db_path = os.environ.get('CHROMA_PERSIST_DIR', 'chroma_db')
+db_path = "./chroma_db"
 
 if groq_api_key is None:
     raise ValueError("GROQ_API_KEY is not set")

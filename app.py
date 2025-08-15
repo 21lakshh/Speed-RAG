@@ -35,6 +35,10 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
 
+@app.get("/health-check")
+async def health_check():
+    return {"status": "ok"}
+
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     result = app.state.rag_pipeline.chat(request.query, request.chat_history)
